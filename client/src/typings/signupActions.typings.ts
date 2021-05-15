@@ -3,11 +3,17 @@ import { SelectedGame } from 'shared/typings/models/user';
 export const SUBMIT_SIGNUP_TIME = 'SUBMIT_SELECT_SIGNUPTIME';
 export const SUBMIT_SELECTED_GAMES = 'SUBMIT_SELECTED_GAMES';
 export const SUBMIT_SIGNED_GAMES = 'SUBMIT_SIGNED_GAMES';
+export const SUBMIT_ENTERED_GAMES = 'SUBMIT_ENTERED_GAMES';
 export const UPDATE_UNSAVED_CHANGES_STATUS = 'UPDATE_UNSAVED_CHANGES_STATUS';
 
 export interface SubmitSignupAsync {
   type: typeof SUBMIT_SIGNED_GAMES;
   signedGames: readonly SelectedGame[];
+}
+
+export interface SubmitEnteredAsync {
+  type: typeof SUBMIT_ENTERED_GAMES;
+  enteredGame: SelectedGame;
 }
 
 export interface SubmitSignupTime {
@@ -27,6 +33,7 @@ export interface UpdateUnsavedChangesStatus {
 
 export type SignupActionTypes =
   | SubmitSignupAsync
+  | SubmitEnteredAsync
   | SubmitSignupTime
   | SubmitSelectedGames
   | UpdateUnsavedChangesStatus;

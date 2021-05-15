@@ -5,6 +5,7 @@ import {
 } from 'client/typings/myGamesActions.typings';
 import {
   SignupActionTypes,
+  SUBMIT_ENTERED_GAMES,
   SUBMIT_SIGNED_GAMES,
 } from 'client/typings/signupActions.typings';
 import { MyGamesState } from 'client/typings/redux.typings';
@@ -34,6 +35,11 @@ export const myGamesReducer = (
       };
     case SUBMIT_SIGNED_GAMES:
       return { ...state, signedGames: action.signedGames };
+    case SUBMIT_ENTERED_GAMES:
+      return {
+        ...state,
+        enteredGames: [...state.enteredGames, action.enteredGame],
+      };
     default:
       return state;
   }
